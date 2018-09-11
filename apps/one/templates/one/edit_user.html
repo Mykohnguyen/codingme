@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #edit_info{
+            width:400px;
+            height:400px;
+            border:2px solid black;
+            display:inline-block;
+        }
+        #change_password{
+            width:400px;
+            height:400px;
+            border:2px solid black;
+            display:inline-block;
+            vertical-align: top;
+        }
+        html{
+            background-image:url('cheap_diagonal_fabric.png')
+        }
+        #navbar{
+            background:linear-gradient(silver,grey,silver);
+            height:50px;
+            text-align:center;
+            border-radius:5px;
+        }
+        a{
+            text-decoration:none;
+            color:white;
+            font-size:20pt;
+            margin-left:20px;
+        }
+    </style>
+
+</head>
+<body>
+    <div id='navbar'>
+        <a href ='/home'> Home</a>
+        <a href ='/user/'> User</a>
+    </div>
+    <div id="edit_info">
+        <h1> Edit User Info</h1>
+        <form>
+            {% csrf_token %}
+            <table>
+                <tr>
+                    <td>First Name:</td>
+                    <td><input type='text' nanme='first_name'></td>
+                </tr>
+                <tr>
+                    <td>Last Name:</td>
+                    <td><input type='text' nanme='last_name'></td>
+                </tr>
+                <tr>
+                    <td>Display Name:</td>
+                    <td><input type='text' nanme='display_name'></td>
+                </tr>
+                <tr>
+                    <td>Email:</td>
+                    <td><input type='email' nanme='email'></td>
+                </tr>
+            </table>
+            <button> Update</button>
+        </form>
+    </div>
+    <div id='change_password'>
+        <h1> Change Password</h1>
+        <form>
+            {% csrf_token %}
+            <table>
+                <tr>
+                    <td>Password:</td>
+                    <td><input type = 'password' name:'password'></td>
+                </tr>
+                <tr>
+                    <td>Confirm Password:</td>
+                    <td><input type = 'password' name:'confirm_password'></td>
+                </tr>
+            </table>
+            <button>Update</button> 
+        </form>
+    </div>
+</body>
+</html>

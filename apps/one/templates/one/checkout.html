@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" type="text/css" rel="stylesheet">
+<!-- <link rel="stylesheet" type="text/css" href="{% static 'one/css/checkout.css' %}"> -->
+<script src= 'http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+<script src="https://js.stripe.com/v3/"></script>
+<!-- <script src="{% static 'one/script/checkout.js' %}"></script> -->
+<!-- <style media="screen"> -->
+</head>
+
+<body>
+    <form action="/charge" method="POST">
+      {% csrf_token %}
+        <script
+          src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+          data-key="pk_test_ASRbePXO8oqpIzwsQ937MlSu"
+          data-amount="999"
+          data-label="Buy"
+          data-name="Demo Site"
+          data-description="Widget"
+          data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+          data-locale="auto">
+        </script>
+      </form>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% load static %}
+    <link rel='stylesheet' href ="{% static 'one/css/user_info.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    <div id="header">
+        <a href='/user'> Home |</a>
+        <a href='/user/classroom'> Classroom | </a>
+        <a href='/mall'> Mall | </a>
+        <a href='/ranking_page'> Rankings | </a>
+        <a href='/logout'> Logout  </a>
+    </div>
+    <div id="top">
+        <h1>{{request.session.display_name}}</h1>
+    </div>
+    <div id="main">
+        <div id="mainbox">
+            <div id="sidenav">
+                <ul>
+                    <li><a href='/user'>Character</a></li>
+                    <li><p>Info</p></li>
+                    <li><a href='/user/edit'>Edit</a></li>
+                </ul>
+            </div>
+            <div id='content'>
+                <div id = 'info'>
+                    <h2>Name:</h2>
+                        <p>{{user.first_name}} {{user.last_name}}</p>
+                    <h2>Email:</h2>
+                        <p>{{user.email}}</p>
+                    <h2>Programming Languages:</h2>
+                        {{user.programming_language}}
+                    <h2>Age:</h2>
+                        <p>{{age}}</p>
+                    <h2>Location:</h2>
+                        <p>{{user.location}}</p>
+                </div>
+                <div id='gold'>
+                    <h2> Total Points:</h2>
+                        {{user.point}}
+                    <h2> Gold:</h2>
+                        {{user.gold}}
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

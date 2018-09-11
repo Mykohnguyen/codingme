@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="{% static 'one/css/mall_weapon.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    <div id="header">
+        <a href='/user'> Home | </a>
+        <a href='/user/classroom'> Classroom | </a>
+        <a href='/user/mall'> Mall | </a>
+        <a href='/logout'> Logout  </a>
+    </div>
+    <div id="body">
+        <fieldset >
+            <legend><h1>Categories</h1></legend>
+            <div id="sidenav">
+                <ul>
+                    <li class="button"><a href ='/mall'>Gold</a></li>
+                    <li class="button"><a href ='/mall/weapon'>Weapon</a></li>
+                    <li class="button"><a href ='/mall/aura'>Aura</a></li>
+                    <li class="button"><a href ='/mall/background'>Background</a></li>
+                </ul>
+            </div>
+            <div id="content">
+                {% for weapon in weapons %}
+                    <div class="itemslot">
+                        <h3>{{weapon.name}}</h3>
+                        <div class="item">
+                            <img class="weapon" src='{{weapon.image}}'>
+                            {{weapon.price}}
+                        </div>
+                        <form action='/buy/{{category}}/{{weapon.id}}'>
+                            {% csrf_token %}
+                            <button> Buy</button>
+                        </form>
+                    </div>
+                {% endfor %}
+            </div>
+        </fieldset>
+    </div>
+</body>
+</html>

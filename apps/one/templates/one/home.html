@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    {% load static %}
+    <link rel='stylesheet' href ="{% static 'one/css/home.css' %}">
+</head>
+<body>
+    <div id="title">
+      <h1> Login</h1> 
+    </div> 
+    <section class="login">
+      <form action="logging_in" method="POST">	
+      {% csrf_token %}
+        <div id="fade-box">
+          <input type="email" name="email" id="username" placeholder="Email" required>
+          <input type="password" name ="password" placeholder="Password" required>     
+          <button>Login</button> 
+          <a href="/register"> Register</a>
+        </div>
+      </form>   
+    </section> 
+    <div id="circle1">
+      <div id="inner-circle1"></div>
+    </div>
+</body>
+</html>

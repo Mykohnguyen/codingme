@@ -1,0 +1,133 @@
+@import "https://fonts.googleapis.com/css?family=Ubuntu:400,700italic";
+@import "https://fonts.googleapis.com/css?family=Cabin:400";
+* {
+  box-sizing: border-box;
+}
+  
+html {
+    background: #2e2e2e;
+    font-family:'Courier New', Courier, monospace;
+    height: 100%;
+    overflow: hidden;
+    position: absolute;
+    width: 100%;
+    color:#00fffd;
+}
+a{
+    text-decoration: none;
+}
+ul{
+    list-style-type: none;
+}
+button{
+    background-color:transparent;
+    border: 1px solid #00fffc;
+    color:#00fffd;
+}
+/* =======================================================
+    Top Nav Bar
+=========================================================*/
+#header{
+    border-bottom:0.2em solid #00fffd;
+    padding:20px 0px;
+    text-align:center;
+}
+#header a{
+    color:#00a4a2;
+}
+/* =======================================================
+    Side Nav Main Box
+=========================================================*/
+#sidenav{
+    width:15%;
+    height:100%;
+    display:inline-block;
+}
+#sidenav a{
+    animation: text-glow 2s ease-out infinite alternate;
+    font-size: 30pt;
+    color:#00fffd;
+}
+#sidenav li{
+    margin-top: 72%;
+    margin-left: 40%;
+}
+#sidenav p{
+    font-size:23pt;
+    font-weight:600;
+}
+
+/* =======================================================
+    Main Content Box
+=========================================================*/
+.mainbox  {
+    border: 6px solid #00a4a2;
+    background: linear-gradient(#004746, #111111);
+    box-shadow: 0 0 15px #00fffd;
+    border-radius: 10px;
+    height: 600px;
+    margin: 0px auto;
+    position: relative;
+    width: 75%;
+    margin-top:5%;
+}
+/* =======================================================
+    Title
+=========================================================*/
+#top h1{
+    font-size:40pt;
+    color:#00fffd;
+    text-align: center;
+}
+/* =======================================================
+    User Info of main box
+=========================================================*/
+#content{
+    width:900px;
+    height:100%;
+    vertical-align: top;
+    display:inline-block;
+    margin-left:150px;
+}
+#edit_info{
+    display:inline-block;
+    position: relative;
+    top:1em;
+    left:5em;
+    color: #00fffd;
+}
+#edit_info p{
+    font-size:30pt;
+    text-decoration: underline;
+}
+#change_password{
+    vertical-align: top;
+    display: inline-block;
+    position: relative;
+    top:1em;
+    left:10em;
+    color: #00fffd;
+}
+#change_password p{
+    font-size:30pt;
+    text-decoration: underline;
+}
+.mainbox input {
+    background: #222;
+    background: linear-gradient(#333333, #222222);
+    border: 1px solid #444;
+    border-radius: 5px;
+    box-shadow: 0 2px 0 #000;
+    color: #888;
+    display: block;
+    font-family: 'Cabin', helvetica, arial, sans-serif;
+    font-size: 10pt;
+    height: 30px;
+    padding: 0 10px;
+    text-shadow: 0 -1px 0 #000;
+    width: 200px;
+    color:#00a4a2;
+}
+td {
+    padding-top:2em;
+}

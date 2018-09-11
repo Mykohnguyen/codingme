@@ -1,0 +1,93 @@
+@import "https://fonts.googleapis.com/css?family=Ubuntu:400,700italic";
+@import "https://fonts.googleapis.com/css?family=Cabin:400";
+* {
+  box-sizing: border-box;
+}
+  
+html {
+    background: #2e2e2e;
+    font-family:'Courier New', Courier, monospace;
+    height: 100%;
+    overflow: hidden;
+    position: absolute;
+    width: 100%;
+}
+a{
+    text-decoration: none;
+}
+#header{
+    border-bottom:0.2em solid #00fffd;
+    padding:20px 0px;
+    text-align:center;
+}
+#header a{
+    color:#00a4a2;
+}
+#sidenav{
+    width:200px;
+    height:400px;
+    display:inline-block;
+}
+#sidenav a{
+    animation: text-glow 2s ease-out infinite alternate;
+    font-size: 30pt;
+    color:#00fffd;
+}
+#sidenav li{
+    margin-top:3.75em;
+    margin-left:3.75em;
+}
+#sidenav p{
+    font-size:23pt;
+    font-weight:600;
+}
+
+#fade-box {
+    animation: input-entry 3s ease-in;
+    z-index: 4;
+}
+
+.stark-login  {
+  animation: form-entry 3s ease-in-out;
+  border: 6px solid #00a4a2;
+  background: linear-gradient(#004746, #111111);
+  box-shadow: 0 0 15px #00fffd;
+  border-radius: 10px;
+  height: 600px;
+  margin: 0px auto;
+  position: relative;
+  width: 1400px;
+  transition: 1s all;
+  margin-top:100px;
+}
+#top h1{
+    font-size:40pt;
+    color:#00fffd;
+    text-align: center;
+}
+  @keyframes form-entry {
+    0% {
+      height: 0;
+      width: 0;
+      opacity: 0;
+      padding: 0;
+    }
+    20% {
+      height: 0;
+      border: 1px solid #00a4a2;
+      width: 0;
+      opacity: 0;
+      padding: 0;
+    }
+    40% {
+      width: 0;
+      height: 600px;
+      border: 6px solid #00a4a2;
+      opacity: 1;
+      padding: 0;
+    }
+    100% {
+      height: 600px;
+      width: 1200px;
+    }
+  }

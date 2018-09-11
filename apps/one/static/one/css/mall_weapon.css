@@ -1,0 +1,124 @@
+@import "https://fonts.googleapis.com/css?family=Ubuntu:400,700italic";
+@import "https://fonts.googleapis.com/css?family=Cabin:400";
+html{
+    font-family:'Courier New', Courier, monospace;
+    background: #2e2e2e;
+    }
+    *{
+    margin:0px auto;
+    padding:0px;
+    }
+    .stripeFormContainer .stripe-button-el{ 
+        display: none
+    }
+    #header{
+        text-align:center;
+        padding:20px 0px;
+        border-bottom:0.2em solid #00fffd;
+        color:#00a4a2;
+    }
+    #header a{
+        color:#00a4a2;
+        text-decoration: none;
+    }
+    #mall{
+        width:90%;
+        height:47em;
+        margin:4% auto;
+        border:10px outset grey; 
+    }
+    #sidenav{
+        width:20%;
+        height:90%;
+        display:inline-block;
+        font-size: 18pt;
+        color:#00fffd;
+        text-align:center;
+        border-right:5px solid #00a4a2;
+    }
+    #sidenav a{
+        color:#00fffd;
+        text-decoration: none;
+    }
+    .button {
+        display: block;
+        padding: 2% 9%;
+        text-align: center;
+        border-radius: 20px;
+        font-weight: bold;
+        margin-top:5%;
+        background: linear-gradient(#333333, #222222);
+        border: 1px solid #444;
+    }
+    .item{
+        width:220px;
+        height:220px;
+        display:inline-block;
+        border: 1px solid #00a4a2;
+    }
+    .item img{
+        width:100%;
+        height:100%;
+    }
+    #content{
+        width:77%;
+        height:90%;
+        display:inline-block;
+        overflow:auto;
+        vertical-align: top;
+        position: relative;
+        color:#00fffd;
+        margin-left:1.5%;
+    }
+    #content p{
+        display:inline;
+    }
+    fieldset{
+        border:6px #00a4a2 solid;
+        box-shadow: 0 0 15px #00fffd;
+        width:90%;
+        height:47em;
+        margin:0px auto;
+        position: relative;
+        padding:0px;
+        top: 3em;
+        background:linear-gradient(#004746, #111111)
+    }
+    legend{
+        background-color:#004746;
+        margin-left: 1em;
+        padding: 0.2em 0.8em;
+        border:5px solid #00a4a2;
+        color:#00fffd;
+    }
+    .itemslot{
+        display:inline-block;
+        margin-top:2.5em;
+        position: relative;
+        left:5em;
+    }
+    li{
+        list-style-type:none;
+    }
+    button{
+        background: linear-gradient(#333333, #222222);
+        border: 1px solid #444;
+        border-left-color: #000;
+        border-radius: 5px;
+        box-shadow: 0 2px 0 #000;
+        color: #00fffd;
+        font-family: 'Cabin', helvetica, arial, sans-serif;
+        padding:5% 10%;
+    }
+    #content::-webkit-scrollbar{
+        width: 1em;
+    }
+     
+    #content::-webkit-scrollbar-track{
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    }
+     
+    #content::-webkit-scrollbar-thumb{
+      background-color: #8f8e8f;
+     
+    }

@@ -1,0 +1,31 @@
+html{
+    background: #2e2e2e;
+}
+.box{
+    animation: form-entry 3s ease-in-out;
+    background: #111;
+    background: linear-gradient(#004746, #111111);
+    border: 6px solid #00a4a2;
+    box-shadow: 0 0 15px #00fffd;
+    border-radius: 5px;
+    height: 900px;
+    margin:0px auto;
+    position: relative;
+    z-index: 4;
+    width: 500px;
+    transition: 1s all;
+  }
+.boxheader{
+    border-bottom: 2px solid #00fffd;
+    font-size:16pt;
+    text-align: center;
+    color:#00a4a2;
+}
+table{
+    border-spacing:40px;
+    text-align:center;
+}
+a{
+    text-decoration: none;
+    color:#00a4a2;
+}

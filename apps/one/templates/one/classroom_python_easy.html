@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% load static %}
+    <link href='http://fonts.googleapis.com/css?family=Coming+Soon' rel='stylesheet' type='text/css'>
+    <link rel='stylesheet' href ="{% static 'one/css/classroom_python_easy.css' %}">
+    <script src= 'http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+    <script src="{% static 'one/script/classroom_python.js' %}"></script>
+    <title>Document</title>
+</head>
+<body>
+        <div class='blackboard'>
+            <div id="main">
+            <div class="questions">
+                {{questions.content|linebreaks}}<br>
+            </div>
+            <div class="answers">
+                <form action ='/check_answers' method='POST'>
+                {% csrf_token %}
+                    {% for answer in answers %}
+                        <div class="test">
+                        <input type='radio' name='selected' value='{{answer.correct}}'><br>
+                        <input type='hidden' name='number' value = '{{questions.id}}'>
+                        <input type="hidden" name="category" value="{{questions.category}}">
+                        <input type="hidden" name="difficulty" value="{{questions.difficulty}}">
+                        {{answer.content|linebreaks}}<br>
+                        </div>
+                    {% endfor %}
+                    <div id="button">
+                        <button id='submit'>Next >> </button> 
+                    </div>
+                </form>   
+            </div>
+            </div>
+        </div>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src= 'http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+    {% load static %}
+    <link rel='stylesheet' href ="{% static 'one/css/user.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    <div id="header">
+        <a href='/user'> Home |</a>
+        <a href='/user/classroom'> Classroom | </a>
+        <a href='/mall'> Mall | </a>
+        <a href='/ranking_page'> Rankings | </a>
+        <a href='/logout'> Logout  </a>
+    </div>
+    <div id="top">
+        <h1>{{request.session.display_name}}</h1>
+    </div>
+    <div id="main">
+        <div id="mainbox">
+            <div id="fade-box"></div>
+            <div id="sidenav">
+                <ul>
+                    <li><p>Character</p></li>
+                    <li><a href='user/info'>Info</a></li>
+                    <li><button id='inventory'>Inventory</button></li>
+                    <li><a href='user/edit'>Edit</a></li>
+                </ul>
+            </div>
+            <div id='content'>
+                <button id="backgroundbutton">Change Background</button> 
+                <div id="character">
+                    <div class="background">
+                        {% if favorite_background != "" %}
+                         <img class="background_image" src="{{favorite_background.image}}">
+                         {% endif %}
+                    </div>
+                    <div id="mycharacter"></div>
+                    <div class="aura">
+                        {% if favorite_aura != "" %}
+                            <img class="aura_image" src="{{favorite_aura.image}}">
+                        {% endif %}
+                    </div>
+                    <div class="weapon">
+                        {% if favorite_weapon != "" %}
+                        <img class="weapon_image" src="{{favorite_weapon.image}}">
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="inventory_container">
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+                <span class="closeinventory">&times;</span>
+                <div class="modalheader">
+                    <h1>Inventory</h1>
+                </div>
+                {% for weapon in weapons_owned %}
+                <div class="items_owned">
+                    <form action="/favorite/weapon" class="chicken" method="POST">
+                    {% csrf_token %}
+                        <input type="hidden" class="name" name="name" value="{{weapon.name}}">
+                        <button class="favorite_weapon" alt-data="{{weapon.image}}"><img class="inventory_weapon" src="{{weapon.image}}"></button>
+                    </form>               
+                </div>
+                {% endfor %}  
+                {% for aura in auras_owned %}
+                <div class="items_owned">
+                    <form action="/favorite/aura" class="chicken" method="POST">
+                    {% csrf_token %}
+                        <input type="hidden" class="name" name="name" value="{{aura.name}}">
+                        <button class="favorite_aura" alt-data="{{aura.image}}"><img class="inventory_weapon" src="{{aura.image}}"></button>
+                    </form>
+                </div>
+                {% endfor %}                         
+            </div>
+        </div>
+    </div>
+    <div id="background_container">
+        <div id="backgroundmodal" class="bmodal">
+            <div class="backgroundmodal-content">
+                <span class="closebackground">&times;</span>
+                <div class="modalheader">
+                    <h1>Backgrounds</h1>
+                </div>
+                    {% for background in backgrounds_owned %}
+                        <div class="items_owned">
+                            <form action="/favorite/background" class="chicken" method="POST">
+                                {% csrf_token %}
+                                <input type="hidden" class="name" name="name" value="{{background.name}}">
+                                <button class="favorite_background" alt-data="{{background.image}}"><img class="inventory_weapon" src="{{background.image}}"></button>
+                            </form>
+                        </div>       
+                 {% endfor %}
+            </div>
+        </div>
+    </div>
+<script src="{% static 'one/script/user.js' %}"></script>
+</body>
+</html>

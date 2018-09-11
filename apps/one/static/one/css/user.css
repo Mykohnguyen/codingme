@@ -1,0 +1,264 @@
+@import "https://fonts.googleapis.com/css?family=Ubuntu:400,700italic";
+@import "https://fonts.googleapis.com/css?family=Cabin:400";
+* {
+  box-sizing: border-box;
+}
+
+html {
+    background: #2e2e2e;
+    font-family:'Courier New', Courier, monospace;
+    height: 100%;
+    overflow: hidden;
+    position: absolute;
+    width: 100%;
+    color:#00fffd;
+}
+
+a{
+    text-decoration: none;
+}
+
+ul{
+    list-style-type: none;
+}
+
+td{
+    border:2px solid grey;
+    width:40px;
+}
+
+button{
+    background-color:transparent;
+}
+/* ==================================
+    Nav Bar
+=====================================*/
+#header{
+    border-bottom:3px solid #00fffd;
+    padding:20px 0px;
+    text-align:center;
+}
+#header a{
+    color:#00a4a2;
+}
+
+
+/* ==================================
+    Main Content Box
+=====================================*/
+#mainbox{
+  border: 6px solid #00a4a2;
+  background: linear-gradient(#004746, #111111);
+  box-shadow: 0 0 15px #00fffd;
+  border-radius: 10px;
+  height: 600px;
+  margin: 0px auto;
+  position: relative;
+  width: 75%;
+  margin-top:5%;
+}
+#top h1{
+    font-size:40pt;
+    color:#00fffd;
+    text-align: center;
+}
+#content{
+    width:74%;
+    height:100%;
+    vertical-align: top;
+    display:inline-block;
+    margin-left:2px;
+    border-top-right-radius:10px;
+    border-bottom-right-radius:10px;
+}
+/* ==================================
+    Character/Avatar 
+=====================================*/
+#character{
+    width:650px;
+    height:400px;
+    position: relative;
+    top:15%;
+    display:block;
+    margin-left:425px;
+    border:4px solid #00a4a2; 
+}
+#mycharacter{
+    background-image: url(/static/one/images/redrobot.png);
+    width: 40%;
+    height: 65%;
+    display: inline-block;
+    background-size: 100% 100%;
+    position: absolute;
+    left: 30%;
+    bottom: 0%;
+    z-index: 1;
+}
+
+/* ==================================
+    Side Navigation Inside Content Box
+=====================================*/
+
+#sidenav{
+    width:15%;
+    height:100%;
+    display:inline-block;
+}
+#sidenav a{
+    animation: text-glow 2s ease-out infinite alternate;
+    font-size: 30pt;
+    color:#00fffd;
+}
+#sidenav li{
+    margin-top: 52%;
+    margin-left: 40%;
+}
+#sidenav p{
+    font-size:23pt;
+    font-weight:600;
+}
+/* ==================================
+    Inventory Modal
+=====================================*/
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2;
+    left: 0;
+    top: 0;
+    width: 500px;
+    height: 300px;
+}
+.modal-content {
+    background: #2e2e2e;
+    padding: 20px;
+    border: 1px solid #00fffc;
+    width: 21%;
+    height: 49%;
+    border-radius: 10px;
+    position: fixed;
+    left: 17%;
+    top: 34%;
+    overflow:auto;
+    box-shadow: 0 0 5px rgba(0, 255, 253, 0.2), inset 0 0 5px rgba(0, 255, 253, 0.1), 0 2px 0 #000;
+}
+.closebackground,.closeinventory {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+.closebackground:hover,.closebackground:focus,.closeinventory:hover,.closeinventory:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+#inventory{
+    background:none;
+    border:none;
+    font-size:30pt;
+    font-family:'Courier New', Courier, monospace;
+    color: #00fffd;
+    padding:0px;
+}
+
+/* ==================================
+    Background Modal
+=====================================*/
+
+#background_container{
+    position:relative;
+    overflow:auto;
+}
+.bmodal {
+    display: none;
+    position: fixed; 
+    z-index: 2;
+    left: 0;
+    top: 0;
+    width: 500px;
+    height: 300px; 
+}
+.backgroundmodal-content {
+    background: #2e2e2e;
+    padding: 20px;
+    border: 1px solid #00fffc;
+    width: 16%;
+    height: 49%;
+    border-radius: 10px;
+    position: fixed;
+    right: 0;
+    top: 34%;
+    overflow:auto;
+    box-shadow: 0 0 5px rgba(0, 255, 253, 0.2), inset 0 0 5px rgba(0, 255, 253, 0.1), 0 2px 0 #000;
+}
+.background_image{
+    height:100%;
+    width:100%;
+    opacity: 0.5;
+}
+.background{
+    display:inline-block;
+    height:100%;
+    width:100%;
+    position:relative;
+}
+#backgroundbutton{
+    position:relative;
+    left:936px;
+    top:86px;
+    color:#00fffd;
+    border: 1px solid #00fffc;
+}
+/* ==================================
+    Items
+=====================================*/
+.items_owned{
+    width:50px;
+    height:50px;
+    display:inline-block;
+    background-color:transparent;
+}
+
+/* ==================================
+    Weapons
+=====================================*/
+.favorite_weapon{
+    background-color:transparent;
+}
+.inventory_weapon{
+    width:50px;
+    height:50px;
+}
+.weapon {
+    height: 49%;
+    width: 18%;
+    display: inline-block;
+    background-size: 100% 100%;
+    position: absolute;
+    left: 53%;
+    top: 41%;
+}
+.weapon_image{
+    width:100%;
+    height:100%;
+}
+/* ==================================
+   Aura
+=====================================*/
+.favorite_aura{
+    background-color:transparent;
+}
+.aura{
+    display: inline-block;
+    height: 100%;
+    width: 50%;
+    position: absolute;
+    right: 25%;
+    top:0%;
+}
+.aura_image{
+    width:100%;
+    height:100%;
+    background-color: transparent;
+}

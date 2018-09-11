@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    {% load static %}
+    <link rel='stylesheet' href="{% static 'one/css/user_edit.css' %}">
+</head>
+<body>
+    <div id="header">
+        <a href='/user'> Home | </a>
+        <a href='/user/classroom'> Classroom | </a>
+        <a href='/mall'> Mall | </a>
+        <a href='/ranking_page'> Rankings | </a>
+        <a href='/logout'> Logout  </a>
+    </div>
+    <div id="top">
+        <h1>{{user.display_name}}</h1>
+    </div>
+    <div id="main">
+            <div class="mainbox">
+            <div id="sidenav">
+                <ul>
+                    <li><a href='/user'>Character</a></li>
+                    <li><a href='/user/info'>Info</a></li>
+                    <li><p>Edit</p></li>
+                </ul>
+            </div>
+            <div id='content'>
+                <div id="edit_info">
+                    <p> Edit User Info</p>
+                    <form action='/user/user_info_edit' method="POST">
+                        {% csrf_token %}
+                        <table>
+                            <tr>
+                                <td>First Name:</td>
+                                <td><input type='text' name='first_name' value='{{user.first_name}}'></td>
+                            </tr>
+                            <tr>
+                                <td>Last Name:</td>
+                                <td><input type='text' name='last_name' value='{{user.last_name}}'></td>
+                            </tr>
+                            <tr>
+                                <td>Display Name:</td>
+                                <td><input type='text' name='display_name' value='{{user.display_name}}'></td>
+                            </tr>
+                            <tr>
+                                <td>Email:</td>
+                                <td><input type='email' name='email' value='{{user.email}}'></td>
+                            </tr>
+                            <tr>
+                                <td>Programming Languages<br>
+                                    Known:</td>
+                                <td><input type='text' name='programming_language' value='{{user.programming_language}}'></td>
+                            </tr>                            
+                            <tr>
+                                <td>Location:</td>
+                                <td><input type='text' name='location' value='{{user.location}}'></td>
+                            </tr>
+                        </table>
+                        <button> Update</button>
+                    </form>
+                </div>
+                <div id='change_password'>
+                    <p>Change Password</p>
+                    <form>
+                        {% csrf_token %}
+                        <table>
+                            <tr>
+                                <td>Password:</td>
+                                <td><input type = 'password' name:'password'></td>
+                            </tr>
+                            <tr>
+                                <td>Confirm Password:</td>
+                                <td><input type = 'password' name:'confirm_password'></td>
+                            </tr>
+                        </table>
+                        <button>Update</button> 
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

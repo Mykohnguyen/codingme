@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <form action = '/addingq' method='POST'>
+        {% csrf_token %}
+        Question: <textarea  name='content'> </textarea>
+        Difficulty: <input type= 'text' name='difficulty'>
+        <button>Submit</button> 
+    </form> <br>
+    <form action ='/addinga' method='POST'>
+        {% csrf_token %}
+        Answers<br>
+        content: <textarea name='content'></textarea>
+        correct: <input type='text' name='correct'>
+        question_id: <input type='number' name='question_id'>
+        <button>Submit</button>
+    </form>
+    
+</body>
+</html>

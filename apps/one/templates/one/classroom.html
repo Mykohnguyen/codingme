@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% load static %}
+    <link href='http://fonts.googleapis.com/css?family=Coming+Soon' rel='stylesheet' type='text/css'>
+    <link rel='stylesheet' href ="{% static 'one/css/classroom.css' %}">
+    <script src= 'http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+    <script src="{% static 'one/script/classroom.js' %}"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="header"><a href="/user">Home</a></div>
+    <div class='shade'>
+        <div class='blackboard'>
+            <div id='select'>
+                <p>Select one</p>
+                    <button id='pythonbutton'>Python </button>
+                    <button id='javabutton'> Java </button>
+                    <button id='javascriptbutton'> Javascript </button>
+            </div>
+            <div id="difficulty">
+                <p>Choose a difficulty</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

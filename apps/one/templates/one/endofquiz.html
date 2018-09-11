@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        html{
+        color:White;
+        font-size:30pt;
+        background:radial-gradient(beige,rgb(26, 22, 22))
+        }
+        #blackboard {
+            position: relative;
+            width: 90%;
+            height:700px;
+            margin: 7% auto;
+            border: #bda27e solid 12px;
+            box-shadow: 0px 0px 6px 5px rgba(58, 18, 13, 0), 0px 0px 0px 2px #c2a782, 0px 0px 0px 4px #a58e6f, 3px 4px 8px 5px rgba(0, 0, 0, 0.5);
+            background-color: #333;
+            bottom:50px;
+        }
+    </style>
+</head>
+<body>
+    <div id='blackboard'>
+    <h1> You have earned {{request.session.count}} gold. </h1>
+            Good Job
+        <form action='/ending' method='post'>
+            {% csrf_token %}
+            <button>Back To Home</button> 
+        </form>
+    </div>
+</body>
+</html>
