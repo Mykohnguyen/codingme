@@ -30,7 +30,6 @@ $('.favorite_weapon').click(function(event){
 $('.favorite_aura').click(function(event){
     event.preventDefault();
     var new_aura = $(this).attr("alt-data")
-    console.log('hi from js')
     $.ajax({
         type:'POST',
         url:'/favorite/aura',
@@ -46,7 +45,6 @@ $('.favorite_aura').click(function(event){
 $('.favorite_background').click(function(event){
     event.preventDefault();
     var new_background = $(this).attr("alt-data")
-    console.log('hi from js')
     $.ajax({
         type:'POST',
         url:'/favorite/background',
