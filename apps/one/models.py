@@ -79,8 +79,8 @@ class Question(models.Model):
     difficulty = models.CharField(max_length=10)
     category = models.CharField(max_length=20,default ='python')
     created_at = models.DateTimeField(auto_now_add=True)
-
-
+    number = models.IntegerField(default=0)
+    
 class Answer(models.Model):
     content = models.TextField()
     correct = models.BooleanField()

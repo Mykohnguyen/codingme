@@ -15,38 +15,39 @@ html {
   width: 100%;
 }
 
-a{
+a {
   text-decoration: none;
-  font-size:15pt;
-  color:#00fffd;
+  font-size: 15pt;
+  color: #00fffd;
 }
 
-h1{
-    animation: text-glow 2s ease-out infinite alternate;
-    font-family: 'Ubuntu', sans-serif;
-    color: #00a4a2;
-    font-size: 48px;
-    font-size: 4.8rem;
-    font-weight: bold;
-    position: absolute;
-    text-shadow: 0 0 10px #000, 0 0 20px #000, 0 0 30px #000, 0 0 40px #000, 0 0 50px #000, 0 0 60px #000, 0 0 70px #000;
-    top: 50px;
+h1 {
+  animation: text-glow 2s ease-out infinite alternate;
+  font-family: "Ubuntu", sans-serif;
+  color: #00a4a2;
+  font-size: 48px;
+  font-size: 4.8rem;
+  font-weight: bold;
+  position: absolute;
+  text-shadow: 0 0 10px #000, 0 0 20px #000, 0 0 30px #000, 0 0 40px #000,
+    0 0 50px #000, 0 0 60px #000, 0 0 70px #000;
+  top: 50px;
 }
 
 #title {
-    animation: title-entry 4s ease-in;
-    width: 500px;
-    margin: 0 auto;
-    position: relative;
-    z-index: 40;
-  }
+  animation: title-entry 4s ease-in;
+  width: 500px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 40;
+}
 
 #fade-box {
   animation: input-entry 3s ease-in;
   z-index: 4;
 }
-#fade-box button{
-  color:#00a4a2;
+#fade-box button {
+  color: #00a4a2;
 }
 .register_form form {
   animation: form-entry 3s ease-in-out;
@@ -78,7 +79,7 @@ h1{
   box-shadow: 0 2px 0 #000;
   color: #888;
   display: block;
-  font-family: 'Cabin', helvetica, arial, sans-serif;
+  font-family: "Cabin", helvetica, arial, sans-serif;
   font-size: 10px;
   font-size: 1rem;
   height: 40px;
@@ -90,10 +91,11 @@ h1{
 
 .register_form input:focus {
   animation: box-glow 1s ease-out infinite alternate;
-  background: #0B4252;
+  background: #0b4252;
   background: linear-gradient(#333933, #222922);
   border-color: #00fffc;
-  box-shadow: 0 0 5px rgba(0, 255, 253, 0.2), inset 0 0 5px rgba(0, 255, 253, 0.1), 0 2px 0 #000;
+  box-shadow: 0 0 5px rgba(0, 255, 253, 0.2),
+    inset 0 0 5px rgba(0, 255, 253, 0.1), 0 2px 0 #000;
   color: #efe;
   outline: none;
 }
@@ -109,7 +111,7 @@ h1{
   box-shadow: 0 2px 0 #000;
   color: #fff;
   display: block;
-  font-family: 'Cabin', helvetica, arial, sans-serif;
+  font-family: "Cabin", helvetica, arial, sans-serif;
   font-size: 13px;
   font-weight: 400;
   height: 40px;
@@ -124,7 +126,7 @@ h1{
 
 .register_form button:hover,
 .register_form button:focus {
-  background: #0C6125;
+  background: #0c6125;
   background: linear-gradient(#393939, #292929);
   color: #2e2e2e;
   outline: none;
@@ -137,18 +139,28 @@ h1{
   box-shadow: 0 1px 0 #000, inset 1px 0 1px #222;
   top: 1px;
 }
-
+#error{
+  position: absolute;
+  left: 44%;
+  bottom: 15%;
+  color: red;
+  text-align: center;
+  font-size: 14pt
+}
+#error li{
+  list-style:none;
+}
 @keyframes title-entry {
-    0% {
-      opacity: 0;
-    }
-    80% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
+  0% {
+    opacity: 0;
   }
+  80% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 
 @keyframes input-entry {
   0% {
@@ -192,22 +204,26 @@ h1{
 @keyframes box-glow {
   0% {
     border-color: #00b8b6;
-    box-shadow: 0 0 5px rgba(0, 255, 253, 0.2), inset 0 0 5px rgba(0, 255, 253, 0.1), 0 2px 0 #000;
+    box-shadow: 0 0 5px rgba(0, 255, 253, 0.2),
+      inset 0 0 5px rgba(0, 255, 253, 0.1), 0 2px 0 #000;
   }
   100% {
     border-color: #00fffc;
-    box-shadow: 0 0 20px rgba(0, 255, 253, 0.6), inset 0 0 10px rgba(0, 255, 253, 0.4), 0 2px 0 #000;
+    box-shadow: 0 0 20px rgba(0, 255, 253, 0.6),
+      inset 0 0 10px rgba(0, 255, 253, 0.4), 0 2px 0 #000;
   }
 }
 
 @keyframes text-glow {
   0% {
     color: #00a4a2;
-    text-shadow: 0 0 10px #000, 0 0 20px #000, 0 0 30px #000, 0 0 40px #000, 0 0 50px #000, 0 0 60px #000, 0 0 70px #000;
+    text-shadow: 0 0 10px #000, 0 0 20px #000, 0 0 30px #000, 0 0 40px #000,
+      0 0 50px #000, 0 0 60px #000, 0 0 70px #000;
   }
   100% {
     color: #00fffc;
-    text-shadow: 0 0 20px rgba(0, 255, 253, 0.6), 0 0 10px rgba(0, 255, 253, 0.4), 0 2px 0 #000;
+    text-shadow: 0 0 20px rgba(0, 255, 253, 0.6),
+      0 0 10px rgba(0, 255, 253, 0.4), 0 2px 0 #000;
   }
 }
 

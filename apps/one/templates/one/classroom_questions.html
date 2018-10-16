@@ -12,6 +12,7 @@
     <title>Document</title>
 </head>
 <body>
+        <div class="header"><a href="/user">Home</a></div>
         <div class='blackboard'>
             <div id="main">
             <div class="questions">
@@ -22,8 +23,8 @@
                 {% csrf_token %}
                     {% for answer in answers %}
                         <div class="test">
-                        <input type='radio' name='selected' value='{{answer.correct}}'><br>
-                        <input type='hidden' name='number' value = '{{questions.id}}'>
+                        <input type='radio' name='answer' value='{{answer.correct}}'><br>
+                        <input type='hidden' name='number' value = '{{questions.number}}'>
                         <input type="hidden" name="category" value="{{questions.category}}">
                         <input type="hidden" name="difficulty" value="{{questions.difficulty}}">
                         {{answer.content|linebreaks}}<br>

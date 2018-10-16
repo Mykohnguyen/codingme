@@ -1,5 +1,14 @@
-html{
+@import "https://fonts.googleapis.com/css?family=Ubuntu:400,700italic";
+@import "https://fonts.googleapis.com/css?family=Cabin:400";
+
+html {
     background: #2e2e2e;
+    font-family:'Courier New', Courier, monospace;
+    height: 100%;
+    overflow: hidden;
+    position: absolute;
+    width: 100%;
+    color:#00fffd;
 }
 .box{
     animation: form-entry 3s ease-in-out;
@@ -8,12 +17,16 @@ html{
     border: 6px solid #00a4a2;
     box-shadow: 0 0 15px #00fffd;
     border-radius: 5px;
-    height: 900px;
+    height: 87vh;
     margin:0px auto;
     position: relative;
     z-index: 4;
-    width: 500px;
+    width: 23%;
     transition: 1s all;
+    overflow:auto;
+    text-align:center;
+    top:25px;
+    
   }
 .boxheader{
     border-bottom: 2px solid #00fffd;
@@ -27,5 +40,13 @@ table{
 }
 a{
     text-decoration: none;
+    color:#00a4a2;
+}
+#header{
+    border-bottom:3px solid #00fffd;
+    padding:20px 0px;
+    text-align:center;
+}
+#header a{
     color:#00a4a2;
 }

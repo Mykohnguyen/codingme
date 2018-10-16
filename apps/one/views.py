@@ -13,7 +13,6 @@ from django.http import JsonResponse
 
 stripe.api_key = settings.STRIPE_SECRET_KEY
 
-
 def index(request):
     return render(request,'one/home.html')
 def register(request):
@@ -23,10 +22,11 @@ def registering(request):
         result = User.objects.validations(request.POST)
         if 'errors' in result:
             for key,value in result['errors'].items():
-                messages.error(request,value)           
+                messages.error(request,value)  
+            return redirect('/register')         
         else:
             messages.success(request,'You have successfully registered')
-        return redirect('/register')
+        return redirect('/')
     return redirect('/')
 def logging_in(request):
     if request.method=='POST':
@@ -43,10 +43,12 @@ def logging_in(request):
         else:
             messages.error(request,'Email does not exist')
             return redirect('/invalid')
-
 def invalid(request):
     return render(request,'one/invalid.html')
 
+# =====================================
+#         USER HOMEPAGE
+# =====================================
 def user_page(request):
     if "id" not in request.session:
         return redirect('/')
@@ -143,10 +145,70 @@ def ranking_page(request):
         'peoples': everyone
     }
     return render(request,'one/ranking.html',context)
+
+def favorite_item(request,category):
+    user = User.objects.get(id=request.session['id'])
+    if(category == "weapon"):
+        item = Weapon.objects.get(image=request.POST['name'])
+        user.favorite_weapon = item.name
+    elif(category == "aura"):
+        item= Aura.objects.get(image=request.POST['name'])
+        user.favorite_aura = item.name
+    elif(category == "background"):
+        item= Background.objects.get(image=request.POST['name'])
+        user.favorite_background = item.name
+    
+    user.save()
+    return redirect('/user')
+# =====================================
+#           CLASSROOM
+# =====================================
 def classroom(request):
     if "id" not in request.session:
         return redirect('/')
     return render(request,'one/classroom.html')
+def classroom_questions(request,language,difficulty,number):
+    if "id" not in request.session:
+        return redirect('/')
+    q = Question.objects.filter(category=language,difficulty= difficulty)
+    q = q.get(number=number)
+    a = Answer.objects.filter(question=number)
+    context = {
+        'questions': q,
+        'answers':a
+    }
+    return render(request,'one/classroom_questions.html',context)
+
+def check_answers(request):  
+    if "count" not in request.session:
+        request.session['count'] = 0;
+    if request.POST['answer'] ==  "True":
+        request.session['count'] += 1;
+    if "answered" not in request.session:
+        request.session['answered']= 0;
+    request.session['answered']+=1;
+    if request.session['answered'] > 9:
+        return redirect('/classroom/end_of_quiz')
+    
+    print(request.session['answered'])
+    return redirect ('/classroom/{}/{}/{}'.format(request.POST['category'],request.POST['difficulty'],int(request.POST['number']) + 1))
+def end_of_quiz(request):
+    if "id" not in request.session:
+        return redirect('/')
+    u = User.objects.get(id=request.session['id'])
+    u.point+=request.session['count']
+    u.gold+= request.session['count']
+    u.save()
+    return render(request,'one/endofquiz.html')
+def ending(request):
+    request.session['count'] = 0;
+    request.session['answered'] = 0;
+    return redirect('/user')
+
+
+# ===================================
+#               MALL
+#  ==================================
 def mall(request):
     if "id" not in request.session:
         return redirect('/')
@@ -172,64 +234,6 @@ def mall_weapon(request,category):
     }
     print(context)
     return render(request,'one/mall_weapon.html',context)
-      
-def python_easy(request):
-    if "id" not in request.session:
-        return redirect('/')
-    return render(request,'one/classroom_python_easy.html')
-    
-def language(request,language,difficulty,number):
-    if "id" not in request.session:
-        return redirect('/')
-    q = Question.objects.filter(category=language,difficulty= difficulty)
-    q = q.get(id=number)
-    a = Answer.objects.filter(question=number)
-    context = {
-        'questions': q,
-        'answers':a
-    }
-    return render(request,'one/classroom_python_easy.html',context)
-
-def adding(request):
-
-    return render(request,'one/adding.html')
-
-def addinga(request):
-    Answer.objects.create(
-        content = request.POST['content'],
-        correct= request.POST['correct'],
-        question_id=request.POST['question_id']
-    )
-    return redirect('/adding')
-def addingq(request):
-    Question.objects.create(
-        content=request.POST['content'],
-        difficulty=request.POST['difficulty']
-        )
-    return redirect('/adding')
-def check_answers(request):  
-    if "count" not in request.session:
-        request.session['count'] = 0;
-    if request.POST['selected'] == 'True':
-        request.session['count'] += 1
-    if int(request.POST['number']) + 1 > 10:
-        return redirect('/classroom/end_of_quiz')
-    
-    return redirect ('/classroom/{}/{}/{}'.format(request.POST['category'],request.POST['difficulty'],int(request.POST['number']) + 1))
-def end_of_quiz(request):
-    if "id" not in request.session:
-        return redirect('/')
-    u = User.objects.get(id=request.session['id'])
-    u.point+=request.session['count']
-    u.gold+= request.session['count']
-    u.save()
-    return render(request,'one/endofquiz.html')
-
-def ending(request):
-    request.session['count'] = 0
-
-    return redirect('/user')
-
 def buy_item(request,category,id):
     user = User.objects.get(id=request.session['id'])
     if(category == "weapon"):
@@ -267,24 +271,26 @@ def charge(request):
         user.save()
         return redirect('/user')
 
-def favorite_weapon(request,category):
-    user = User.objects.get(id=request.session['id'])
-    if(category == "weapon"):
-        item = Weapon.objects.get(image=request.POST['name'])
-        user.favorite_weapon = item.name
-    elif(category == "aura"):
-        item= Aura.objects.get(image=request.POST['name'])
-        user.favorite_aura = item.name
-    elif(category == "background"):
-        item= Background.objects.get(image=request.POST['name'])
-        user.favorite_background = item.name
-    
-    user.save()
-    return redirect('/user')
-
+# ====================================
+#         MISC 
+# =====================================
 def logout(request):
-
     request.session.clear();
     return redirect('/')
+def adding(request):
+    return render(request,'one/adding.html')
 
+def addinga(request):
+    Answer.objects.create(
+        content = request.POST['content'],
+        correct= request.POST['correct'],
+        question_id=request.POST['question_id']
+    )
+    return redirect('/adding')
+def addingq(request):
+    Question.objects.create(
+        content=request.POST['content'],
+        difficulty=request.POST['difficulty']
+        )
+    return redirect('/adding')
 

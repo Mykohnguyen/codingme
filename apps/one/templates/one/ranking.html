@@ -1,30 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    {% load static %}
-    <link rel='stylesheet' href ="{% static 'one/css/ranking.css' %}">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"> {% load static %}
+    <link rel='stylesheet' href="{% static 'one/css/ranking.css' %}">
     <title>Document</title>
 </head>
+
 <body>
+    <div id="header">
+        <a href='/user'> Home |</a>
+        <a href='/user/classroom'> Classroom | </a>
+        <a href='/mall'> Mall | </a>
+        <a href='/ranking_page'> Rankings | </a>
+        <a href='/logout'> Logout </a>
+    </div>
     <div class='box'>
-        <div class="boxheader">
-            <h1> Ranking</h1>
-        </div>
-    <table>
-        <thead>
-            <th> Display Name</th>
-            <th> Total Points</th>
-        </thead>
-        {% for people in peoples %}
-        <tr>
-            <th><a href="/user/{{people.id}}">{{people.display_name}}</a> </th>
-            <th>{{people.point}} </th>  
-        </tr>
-        {% endfor %}
-    </table>
+        <table>
+            <thead>
+                <th> Ranking </th>
+                <th> Display Name</th>
+                <th> Total Points</th>
+            </thead>
+            {% for people in peoples %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>
+                    <a href="/user/{{people.id}}">{{people.display_name}}</a>
+                </td>
+                <td>{{people.point}} </td>
+            </tr>
+            {% endfor %}
+        </table>
     </div>
 </body>
+
 </html>
